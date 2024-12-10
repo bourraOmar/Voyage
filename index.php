@@ -17,14 +17,14 @@
 		</div>
 		<video src="beatch1.mp4" autoplay muted loop></video>
 		<ul class="sci">
-			<li style="--i:1"><a href="https://www.facebook.com/profile.php?id=100011428760121">Facebook</a></li>
-			<li style="--i:2"><a href="https://twitter.com/omarbas66034018">Twitter</a></li>
-			<li style="--i:3"><a href="https://www.instagram.com/talisse_basha/">Instagram</a></li>
+			<li style="--i:1"><a href="#">Facebook</a></li>
+			<li style="--i:2"><a href="#">Twitter</a></li>
+			<li style="--i:3"><a href="#">Instagram</a></li>
 		</ul>
 		<ul class="navigation">
-			<li style="--i:2"><a href="projet3.html">list des eleves</a></li>
-			<li style="--i:3"><a href="projet2.html">Programme de 2eme année</a></li>
-			<li style="--i:4"><a href="projet4.html">Emploie de temps</a></li>
+			<li style="--i:2"><a href="activite.php">Activites</a></li>
+			<li style="--i:3"><a href="#">Programme de 2eme année</a></li>
+			<li style="--i:4"><a href="#">Emploie de temps</a></li>
 		</ul>
 	</section>
 	<script>

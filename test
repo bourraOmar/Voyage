@@ -1,0 +1,67 @@
+<!-- <?php
+include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.php';
+
+//activite table :
+// $titre = $_POST['titre'];
+// $description = $_POST['description'];
+// $destination = $_POST['destination'];
+// $prix = $_POST['prix'];
+// $datedebut = $_POST['datedebut'];
+// $datafin = $_POST['datefin'];
+// $placedisponible = $_POST['placedisponible'];
+
+
+// $activitesql = "INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, place_disponible)
+//                 VALUES (?, ?, ?, ?, ?, ?, ?)";
+// prepare activite table : 
+        // $activitestmt = mysqli_prepare($conn, $activitesql);
+
+        // mysqli_stmt_bind_param($activitestmt, "sssssss", $titre, $description, $destination, $prix, $datedebut, $datefin, $placedisponible);
+
+        // if(mysqli_stmt_execute($activitestmt)){
+        //     echo "<script>Activite added success!<!script>";
+
+        //     header("Location:" <?php ?>);
+        //     exit();
+        // }
+
+
+
+?>
+
+
+// <!-- add client form -->
+//  <!-- <div class="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30">
+// <form method="POST" action="/Gestion-des-R-servations-pour-un-Site-de-Voyage/add.php" class="flex flex-col justify-center items-center pt-5 w-[500px] bg-white rounded-md py-8">
+//     <div>
+//     <label>nom :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="text" name="nom" required>
+//     </div>
+//     <div>
+//     <label>prenom :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="text" name="prenom" required>
+//     </div>
+//     <div>
+//     <label>email :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="text" name="email" required>
+//     </div>
+//     <div>
+//     <label>telephone :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="number" name="telephone" required>
+//     </div>
+//     <div>
+//     <label>adress :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="text" name="adress" required>
+//     </div>
+//     <div>
+//     <label>date :</label>
+//     <input style="width: 400px;" class="rounded-xl text-black text-sm  block p-2.5 dark:bg-gray-200" type="date" name="date" required>
+//     </div>
+//     <div>
+//     <div>
+//     <a href="/Gestion-des-R-servations-pour-un-Site-de-Voyage/add.php"><input style="width: 200px;" class="cursor-pointer my-4 text-sm rounded-lg dark:bg-[#082a82] p-2.5 text-white" type="button" value="See all Clients"></a>
+//     <input style="width: 200px;" class="cursor-pointer my-4 text-sm rounded-lg dark:bg-[#082a82] p-2.5 text-white" type="submit">
+//     </div>
+// </form>
+// </div> -->
+ -->

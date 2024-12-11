@@ -128,16 +128,16 @@
                 echo'<th scope="col" class="px-6 py-3">Action </th>';
             echo'</tr>';
         echo'</thead>';
-    while ($fetch = mysqli_fetch_assoc($data)) {
+    while ($row = $data -> fetch_assoc()) {  
         echo'<tbody>';
           echo'<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">';
-            echo'<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . $fetch["nom"] . '</td>';
-            echo'<td class="px-6 py-4">' . $fetch["prenom"] . '</td>';
-            echo'<td class="px-6 py-4">' . $fetch["email"] . '</td>';
-            echo'<td class="px-6 py-4">' . $fetch["telephone"] . '</td>';
-            echo'<td class="px-6 py-4">' . $fetch["address"] . '</td>';
-            echo'<td class="px-6 py-4">' . $fetch["data_naissance"] . '</td>';
-            echo'<td class="px-6 py-4"><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
+            echo'<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . $row["nom"] . '</th>';
+            echo'<td class="px-6 py-4">' . $row["prenom"] . '</td>';
+            echo'<td class="px-6 py-4">' . $row["email"] . '</td>';
+            echo'<td class="px-6 py-4">' . $row["telephone"] . '</td>';
+            echo'<td class="px-6 py-4">' . $row["address"] . '</td>';
+            echo'<td class="px-6 py-4">' . $row["data_naissance"] . '</td>';
+            echo'<td class="px-6 py-4"><a href="delete.php? deleteId="'. $row['id_client'] .'" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
             echo'<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline"> Delet</a></td>';
         echo'</tr>';
       echo'</tbody>';

@@ -5,31 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-
-    * {
-      font-family: "Nunito Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    #title {
-      font-family: "Dancing Script", cursive;
-      font-optical-sizing: auto;
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    section h2 {
-      font-family: "Dancing Script", cursive;
-      font-optical-sizing: auto;
-      font-weight: 600;
-      font-style: normal;
-    }
-  </style>
   <title>Travel Vibe</title>
 </head>
 
@@ -147,26 +122,25 @@
       echo "error" . mysqli_stmt_error($sqlrepare);
     }
   }
-  $selectAll = "SELECT * FROM activite";
+  $selectAll = "SELECT * FROM `activite`";
   $data = mysqli_query($conn, $selectAll);
-
-  if ($data) {
-    echo '<div class="grid grid-cols-4">';
-    while ($fetch = mysqli_fetch_assoc($data)) {
-      echo '<div class="max-w-sm bg-white rounded-lg shadow-lg p-6 m-6">';
-      echo '<h2 class="text-2xl text-center font-semibold text-gray-800 mb-4">Tour Details</h2>';
+if ($data) {
+  echo '<div class="grid grid-cols-4">';
+  while($row = $data->fetch_assoc()){
+      echo '<div class="max-w-sm bg-gray-800 rounded-lg shadow-lg p-6 m-6">';
+      echo '<h2 class="text-2xl text-center font-semibold text-white mb-4">Tour Details</h2>';
       echo '<div class="space-y-3">';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Titre:</strong> ' . $fetch['titre'] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Description:</strong> ' . $fetch["description"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Destination:</strong> ' . $fetch["destination"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Prix:</strong> ' . $fetch["prix"] . ' DH</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Date de Début:</strong> ' . $fetch["date_debut"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Date de Fin:</strong> ' . $fetch["date_fin"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-600"><strong class="text-black">Places Disponibles:</strong> ' . $fetch["places_desponsibles"] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Titre:</strong> ' . $row['titre'] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Description:</strong> ' . $row["description"] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Destination:</strong> ' . $row["destination"] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Prix:</strong> ' . $row["prix"] . ' DH</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Début:</strong> ' . $row["date_debut"] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Fin:</strong> ' . $row["date_fin"] . '</p>';
+      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Places Disponibles:</strong> ' . $row["places_desponsibles"] . '</p>';
       echo '</div>';
-      echo '<div class="flex justify-around mt-2 ">';
-      echo '<button class="py-2 px-4 bg-green-500 text-white rounded-xl"><a href="reservation.php">delet</a></button>';
-      echo '<button class="py-2 px-4 bg-red-500 text-white rounded-xl"><a href="reservation.php">Edite</a></button>';
+      echo '<div class="flex justify-end gap-2 mt-2 ">';
+      echo '<button class="py-2 px-4 bg-green-500 text-white rounded-xl"><a href="edite.php">Edite</a></button>';
+      echo '<button class="py-2 px-4 bg-red-500 text-white rounded-xl"><a href="delete.php? deleteId='. $row['id_activite'] . '">delet</a></button>';
       echo '</div>';
       echo '</div>';
     }

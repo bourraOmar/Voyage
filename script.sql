@@ -30,4 +30,15 @@ CREATE TABLE reservation(
   PRIMARY KEY (id_reservation),
   FOREIGN KEY (id_client) REFERENCES client(id_client),
   PRIMARY KEY (id_activite) REFERENCES activete(id_activite)
-)
+);
+
+INSERT INTO activite ( titre, description, destination, prix, date_debut, date_fin, places_desponsibles) 
+    VALUES (?,?,?,?,?,?,?);
+
+INSERT INTO client (nom ,prenom, email, telephone, address, data_naissance) 
+    VALUES (?,?,?,?,?,?);
+
+
+
+
+    

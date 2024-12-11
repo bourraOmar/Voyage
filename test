@@ -1,19 +1,19 @@
 <!-- <?php
-include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.php';
+        include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.php';
 
-//activite table :
-// $titre = $_POST['titre'];
-// $description = $_POST['description'];
-// $destination = $_POST['destination'];
-// $prix = $_POST['prix'];
-// $datedebut = $_POST['datedebut'];
-// $datafin = $_POST['datefin'];
-// $placedisponible = $_POST['placedisponible'];
+        //activite table :
+        // $titre = $_POST['titre'];
+        // $description = $_POST['description'];
+        // $destination = $_POST['destination'];
+        // $prix = $_POST['prix'];
+        // $datedebut = $_POST['datedebut'];
+        // $datafin = $_POST['datefin'];
+        // $placedisponible = $_POST['placedisponible'];
 
 
-// $activitesql = "INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, place_disponible)
-//                 VALUES (?, ?, ?, ?, ?, ?, ?)";
-// prepare activite table : 
+        // $activitesql = "INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, place_disponible)
+        //                 VALUES (?, ?, ?, ?, ?, ?, ?)";
+        // prepare activite table : 
         // $activitestmt = mysqli_prepare($conn, $activitesql);
 
         // mysqli_stmt_bind_param($activitestmt, "sssssss", $titre, $description, $destination, $prix, $datedebut, $datefin, $placedisponible);
@@ -21,7 +21,8 @@ include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.ph
         // if(mysqli_stmt_execute($activitestmt)){
         //     echo "<script>Activite added success!<!script>";
 
-        //     header("Location:" <?php ?>);
+        //     header("Location:" <?php 
+        ?>);
         //     exit();
         // }
 
@@ -30,8 +31,23 @@ include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.ph
 ?>
 
 
+
+<!-- 
+echo '<div class="max-w-sm bg-white rounded-lg shadow-lg p-6 mb-6">';
+        echo '<h2 class="text-2xl font-semibold text-gray-800 mb-4">Tour Details</h2>';
+        echo '<div class="space-y-3">';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Titre:</strong> ' . $fetch['titre'] . '</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Description:</strong> ' . $fetch["description"] . '</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Destination:</strong> ' . $fetch["destination"] . '</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Prix:</strong> ' . $fetch["prix"] . ' DH</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Date de Début:</strong> ' . $fetch["date_debut"] . '</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Date de Fin:</strong> ' . $fetch["date_fin"] . '</p>';
+        echo '<p class="text-lg font-medium text-gray-600"><strong>Places Disponibles:</strong> ' . $fetch["places_desponsibles"] . '</p>';
+        echo '</div>'; -->
+
+
 // <!-- add client form -->
-//  <!-- <div class="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30">
+// <!-- <div class="flex justify-center items-center fixed inset-0 bg-black bg-opacity-30">
 // <form method="POST" action="/Gestion-des-R-servations-pour-un-Site-de-Voyage/add.php" class="flex flex-col justify-center items-center pt-5 w-[500px] bg-white rounded-md py-8">
 //     <div>
 //     <label>nom :</label>
@@ -64,4 +80,55 @@ include 'C:\xampp\htdocs\Gestion-des-R-servations-pour-un-Site-de-Voyage\conn.ph
 //     </div>
 // </form>
 // </div> -->
- -->
+-->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>travel Vibe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <section>
+                <header>
+                        <a href="#" class="logo">Omar.</a>
+                        <div class="toggle" onclick="menuToggle();"></div>
+                </header>
+                <div class="glass"></div>
+                <div class="content">
+                        <h2>Travel Vibe<br><span>discover the worldin a new way</span></h2>
+                </div>
+                <video src="beatch1.mp4" autoplay muted loop></video>
+                <ul class="sci">
+                        <li style="--i:1"><a href="#">Facebook</a></li>
+                        <li style="--i:2"><a href="#">Twitter</a></li>
+                        <li style="--i:3"><a href="#">Instagram</a></li>
+                </ul>
+                <ul class="navigation">
+                        <li style="--i:2"><a href="activite.php">Activites</a></li>
+                        <li style="--i:3"><a href="#">Programme de 2eme année</a></li>
+                        <li style="--i:4"><a href="#">Emploie de temps</a></li>
+                </ul>
+        </section>
+        <script>
+                function menuToggle() {
+                        const toggleMenu = document.querySelector('.toggle');
+                        const section = document.querySelector('section');
+                        toggleMenu.classList.toggle('active');
+                        section.classList.toggle('active');
+                }
+        </script>
+</body>
+
+</html>

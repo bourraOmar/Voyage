@@ -3,37 +3,30 @@
 <head>
 	<title>travel Vibe</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-	<section>
-		<header>
-			<a href="omar basha.html" class="logo">Omar.</a>
-			<div class="toggle" onclick="menuToggle();"></div>
-		</header>
-		<div class="glass"></div>
-		<div class="content">
-			<h2>Travel Vibe<br><span>discover the worldin a new way</span></h2>
-		</div>
-		<video src="beatch1.mp4" autoplay muted loop></video>
-		<ul class="sci">
-			<li style="--i:1"><a href="#">Facebook</a></li>
-			<li style="--i:2"><a href="#">Twitter</a></li>
-			<li style="--i:3"><a href="#">Instagram</a></li>
-		</ul>
-		<ul class="navigation">
-			<li style="--i:2"><a href="activite.php">Activites</a></li>
-			<li style="--i:3"><a href="#">Programme de 2eme année</a></li>
-			<li style="--i:4"><a href="#">Emploie de temps</a></li>
-		</ul>
-	</section>
-	<script>
-		function menuToggle() {
-			const toggleMenu = document.querySelector('.toggle');
-			const section = document.querySelector('section');
-			toggleMenu.classList.toggle('active');
-			section.classList.toggle('active');
-		}
-	</script>
+<header>
+    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+            <a href="https://flowbite.com" class="flex items-center">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Travel Vibe</span>
+            </a>
+            <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
+                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                    <li>
+                        <a href="index.php" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Home</a>
+                    </li>
+                    <li>
+                        <a href="activite.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Activite</a>
+                    </li>
+                    <li>
+                        <a href="reservation.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Reservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 </body>
 </html>	

@@ -41,16 +41,6 @@ o	Accueil : Présentation.
 o	Activités : Gestion des activités.
 o	Clients : Gestion des clients.
 ________________________________________
-Instructions pour l’exécution du projet 
-1. Démarrez XAMPP et activez Apache et MySQL. 
-2. Placez le dossier de votre projet dans le répertoire htdocs de XAMPP.
-3. Accédez au site via http://localhost/ Voyage/. 
-4. Naviguez entre les pages : 
-o	Accueil : Présentation du site. 
-o	Activités : Gestion des activités.
-o	Clients : Gestion des clients. 
-o	Réservations : Gestion des réservations.
- ________________________________________
 Résumé des actions réalisées 
 • Configuration : XAMPP installé et environnement configuré.
 • Pages créées : 

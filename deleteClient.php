@@ -7,7 +7,7 @@ if(isset($_GET['clientId'])){
   $result = mysqli_query($conn, $sql);
   if($result){
     echo("deleted successfull");
-    header('location: activite.php');
+    header('location: client.php');
     exit();
   }
   else

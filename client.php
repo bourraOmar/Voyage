@@ -23,7 +23,7 @@
               <a href="activite.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Activite</a>
             </li>
             <li>
-              <a href="reservation.php" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Reservation</a>
+              <a href="dashbord.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Dashbord</a>
             </li>
           </ul>
         </div>
@@ -92,12 +92,13 @@
     $email = $_POST["email"];
     $telephone = $_POST["telephone"];
     $address = $_POST["address"];
-    $dateNaissance = $_POST["dateNaissance"];
+    $dateNaissance = $_POST["dateNaissance"]; 
 
     $sql  = "INSERT INTO client (nom ,prenom, email, telephone, address, data_naissance) VALUES (?,?,?,?,?,?)";
 
     $sqlrepare = mysqli_prepare($conn, $sql);
     $sqlsend = mysqli_stmt_bind_param($sqlrepare, "ssssss", $name, $prenom, $email, $telephone, $address, $dateNaissance);
+
 
     if (mysqli_stmt_execute($sqlrepare)) {
       echo '<script type="text/javascript">
@@ -111,48 +112,47 @@
       echo "error" . mysqli_stmt_error($sqlrepare);
     }
   }
-  $selectAll = "SELECT * FROM client";
+
+  if(isset($_GET['reseveId'])){
+    $id = $_GET['reseveId'];
+  }
+
+  $selectAll = "SELECT * FROM `client`";
   $data = mysqli_query($conn, $selectAll);
 
   if ($data) {
-    echo'<div class="overflow-x-auto shadow-md mx-2 sm:rounded-lg">';
-    echo'<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">';
-        echo'<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">';
-            echo'<tr>';
-                echo'<th scope="col" class="px-6 py-3">Name</th>';
-                echo'<th scope="col" class="px-6 py-3">Prenom</th>';
-                echo'<th scope="col" class="px-6 py-3">E-mail</th>';
-                echo'<th scope="col" class="px-6 py-3">Telephone</th>';
-                echo'<th scope="col" class="px-6 py-3">Address</th>';
-                echo'<th scope="col" class="px-6 py-3">Date de naissance</th>';
-                echo'<th scope="col" class="px-6 py-3">Action </th>';
-            echo'</tr>';
-        echo'</thead>';
+    echo'<div class="overflow-x-auto shadow-md mx-2 sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">Name</th>
+                <th scope="col" class="px-6 py-3">Prenom</th>
+                <th scope="col" class="px-6 py-3">E-mail</th>
+                <th scope="col" class="px-6 py-3">Telephone</th>
+                <th scope="col" class="px-6 py-3">Address</th>
+                <th scope="col" class="px-6 py-3">Date de naissance</th>
+                <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+        </thead>';
     while ($row = $data -> fetch_assoc()) {  
-        echo'<tbody>';
-          echo'<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">';
-            echo'<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . $row["nom"] . '</th>';
-            echo'<td class="px-6 py-4">' . $row["prenom"] . '</td>';
-            echo'<td class="px-6 py-4">' . $row["email"] . '</td>';
-            echo'<td class="px-6 py-4">' . $row["telephone"] . '</td>';
-            echo'<td class="px-6 py-4">' . $row["address"] . '</td>';
-            echo'<td class="px-6 py-4">' . $row["data_naissance"] . '</td>';
-            echo'<td class="px-6 py-4"><a href="delete.php? deleteId="'. $row['id_client'] .'" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>';
-            echo'<a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline"> Delet</a></td>';
-        echo'</tr>';
-      echo'</tbody>';
+        echo'<tbody>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">' . $row["nom"] . '</th>
+            <td class="px-6 py-4">' . $row["prenom"] . '</td>
+            <td class="px-6 py-4">' . $row["email"] . '</td>
+            <td class="px-6 py-4">' . $row["telephone"] . '</td>
+            <td class="px-6 py-4">' . $row["address"] . '</td>
+            <td class="px-6 py-4">' . $row["data_naissance"] . '</td>
+            <td class="px-6 py-4"><a href="dashbord.php? clientId='. $row["id_client"] .'&reseveId='. $id .'"class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reserve</a>
+              <a href="deleteClient.php? clientId='. $row["id_client"] . '"class="font-medium text-blue-600 dark:text-red-500 hover:underline">Delete</a>
+        </tr>
+      </tbody>';
     }
-    echo'</table>';
-    echo'</div>';
+    echo'</table>
+    </div>';
   }
-  
   ?>
   
-
-
-
-
-
 </body>
 
 </html>

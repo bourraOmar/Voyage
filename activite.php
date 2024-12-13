@@ -23,8 +23,8 @@
               <a href="activite.php" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Activite</a>
             </li>
             <li>
-              <a href="reservation.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Reservation</a>
-            </li>
+            <a href="dashbord.php" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Dashbord</a>
+          </li>
           </ul>
         </div>
       </div>
@@ -125,24 +125,24 @@
   $selectAll = "SELECT * FROM `activite`";
   $data = mysqli_query($conn, $selectAll);
 if ($data) {
-  echo '<div class="grid grid-cols-4">';
+  echo '<div class="grid md:grid-cols-4 grid-cols-1">';
   while($row = $data->fetch_assoc()){
-      echo '<div class="max-w-sm bg-gray-800 rounded-lg shadow-lg p-6 m-6">';
-      echo '<h2 class="text-2xl text-center font-semibold text-white mb-4">Tour Details</h2>';
-      echo '<div class="space-y-3">';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Titre:</strong> ' . $row['titre'] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Description:</strong> ' . $row["description"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Destination:</strong> ' . $row["destination"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Prix:</strong> ' . $row["prix"] . ' DH</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Début:</strong> ' . $row["date_debut"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Fin:</strong> ' . $row["date_fin"] . '</p>';
-      echo '<p class="text-lg font-medium text-gray-400"><strong class="text-white">Places Disponibles:</strong> ' . $row["places_desponsibles"] . '</p>';
-      echo '</div>';
-      echo '<div class="flex justify-end gap-2 mt-2 ">';
-      echo '<button class="py-2 px-4 bg-green-500 text-white rounded-xl"><a href="edite.php">Edite</a></button>';
-      echo '<button class="py-2 px-4 bg-red-500 text-white rounded-xl"><a href="delete.php? deleteId='. $row['id_activite'] . '">delet</a></button>';
-      echo '</div>';
-      echo '</div>';
+      echo '<div class="max-w-sm bg-gray-800 rounded-lg shadow-lg p-6 m-6">
+      <h2 class="text-2xl text-center font-semibold text-white mb-4">Tour Details</h2>
+      <div class="space-y-3">
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Titre:</strong> ' . $row['titre'] . '</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Description:</strong> ' . $row["description"] . '</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Destination:</strong> ' . $row["destination"] . '</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Prix:</strong> ' . $row["prix"] . ' DH</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Début:</strong> ' . $row["date_debut"] . '</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Date de Fin:</strong> ' . $row["date_fin"] . '</p>
+      <p class="text-lg font-medium text-gray-400"><strong class="text-white">Places Disponibles:</strong> ' . $row["places_desponsibles"] . '</p>
+      </div>
+      <div class="flex justify-end gap-2 mt-2 ">
+      <button class="py-2 px-4 bg-green-700 hover:bg-green-500 text-white rounded-xl"><a href="client.php? reseveId='. $row['id_activite'] .'">Reserve</a></button>
+      <button class="py-2 px-4 bg-red-700 hover:bg-red-500 text-white rounded-xl"><a href="deleteActivite.php? deleteId='. $row['id_activite'] . '">delet</a></button>
+      </div>
+      </div>';
     }
     echo '</div>';
   }
@@ -150,4 +150,3 @@ if ($data) {
 </body>
 
 </html>
-
